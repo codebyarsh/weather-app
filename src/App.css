@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+p {
+  font-size: 1.6rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 6rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url("assets/bg-img.jpg") no-repeat center center/cover;
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
+.app::after {
+  content: "";
+
+  background: linear-gradient(to bottom, #0b0e1235, #282e3481);
   min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  max-width: 100%;
+  height: 70vh;
+  margin: auto;
+  padding: 0 1rem;
+  position: relative;
+  top: 8%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  gap: 10%;
 }
 
-.App-link {
-  color: #61dafb;
+.app .search {
+  text-align: center;
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.app input {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f5f5;
+  border: none;
+  outline: none;
+}
+
+.app input:hover,
+.app input:active {
+  box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.5);
+}
+
+::placeholder {
+  color: #f5f5f5;
+}
+
+.app .top {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.app .description {
+  position: relative;
+  right: -90%;
+  top: -3rem;
+  transform-origin: 0 0;
+  transform: rotate(269deg);
+}
+
+.app .bottom {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 1rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.feels,
+.humidity,
+.wind {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s
+    forwards;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 700px) {
+  .app .bottom {
+    flex-direction: column;
+    row-gap: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
   }
 }
